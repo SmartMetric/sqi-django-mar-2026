@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Dashboard</title>
+</head>
+<body>
+   
+    <h1>{{library_name}}</h1> 
+    <p>Librarian: {{librarian}}</p>
+    <p>Today's Date: {{current_date|date:"F j, Y"}}</p>
+    <h3>{{featured_message}}</h3>
+
+   
+    <p> {% if is_weekend %}
+            {{weekend_greeting}}
+    
+        {% else %} 
+            {{weekday_greeting}}
+        {% endif %}    
+            </p>
+
+  
+    <h2>Books Collection</h2>
+    <ul>
+        {% for book in books %}
+        <li>
+            <h3>{{book.title | upper}}</h3>
+                <p> Author: {{book.author}}</p>
+                <p> Year of publication : {{book.publication_year}}</p> 
+                <p>Category: {{book.category}}</p>   
+                <p>ISBN: {{book.isbn}}</p>
+                <p>Price: ₦{{book.price|floatformat:2}}</p>
+        
+
+            {% if book.available_copies > 0 %}
+                    <p>Available ({{book.available_copies}} copies)</p>
+            {% else %}
+                    <p>Out of Stock</p>
+                {% endif %}
+    
+                {% if book.is_featured %} 
+                    <p>FEATURED</p>
+                {% endif %}
+                     
+
+          
+
+        
+        </li>
+        {% endfor %}
+    </ul>
+
+   
+    <h2>Library Statistics</h2>
+    <ul>
+         total_members = {{library_stats.total_members}}
+        <p>books_borrowed_today = {{library_stats.books_borrowed_today}}</p>
+        <p>overdue_books = {{library_stats.overdue_books}}</p>  
+         <p>new_arrivals_this_month = {{library_stats.new_arrivals_this_month}}</p>
+    </ul>
+</body>
+</html>
