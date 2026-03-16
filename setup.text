@@ -1,0 +1,27 @@
+mkdir heritage_event_centre
+cd heritage_event_centre
+
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+
+pip install django
+
+django-admin startproject config .
+
+python manage.py startapp heritage_event_centre_app
+
+cd heritage_event_centre_app
+
+mkdir templates\heritage_event_centre_app\partials
+mkdir static\heritage_event_centre_app\css
+mkdir static\heritage_event_centre_app\js
+mkdir static\heritage_event_centre_app\images
+
+ni templates\heritage_event_centre_app\home.html
+ni templates\heritage_event_centre_app\about.html
+ni templates\heritage_event_centre_app\contact.html
+ni templates\heritage_event_centre_app\event.html
+ni templates\heritage_event_centre_app\partials\base.html
+
+ni static\heritage_event_centre_app\css\style.css
+ni static\heritage_event_centre_app\js\script.js

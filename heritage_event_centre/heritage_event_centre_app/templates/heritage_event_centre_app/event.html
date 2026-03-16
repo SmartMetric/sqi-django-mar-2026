@@ -1,0 +1,201 @@
+{% extends "partials/base.html" %}
+{% load static %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+
+<section class="page-hero event-hero" id="event-hero">
+    <div class="container page-hero-content">
+        <span class="hero-badge">Premium Event Venue</span>
+        <h1>Events & Venue Experiences</h1>
+        <p>
+            From elegant weddings to corporate conferences, seminars, receptions,
+            and social celebrations, Heritage Event Centre offers a beautiful space
+            for every memorable occasion.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="{% url 'heritage_event_centre_app:contact' %}" class="btn-primary">Book Your Event</a>
+            <a href="{% url 'heritage_event_centre_app:about' %}" class="btn-outline">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<section class="events-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Our Event Spaces</h2>
+            <p>Explore some of the beautiful setups hosted at Heritage Event Centre.</p>
+        </div>
+
+        <div class="events-grid">
+            {% for event in events %}
+            <div class="event-card">
+
+                <div class="event-image">
+                    <img src="{% static event.image %}" alt="{{ event.title }}">
+                    <span class="event-category">{{ event.category }}</span>
+                </div>
+
+                <div class="event-info">
+                    <h3>{{ event.title }}</h3>
+                    <p>{{ event.description }}</p>
+
+                    <div class="event-footer">
+                        <span class="event-date">{{ event.date }}</span>
+                        <a href="{% url 'heritage_event_centre_app:contact' %}" class="btn-primary">Book Now</a>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<section class="programme-section">
+    <div class="container">
+        <div class="section-heading programme-heading">
+            <span class="section-tag">Upcoming Highlights</span>
+            <h2>Forthcoming Programmes</h2>
+            <p>Signature experiences, business gatherings, and premium social events coming soon.</p>
+        </div>
+
+        <div class="programme-grid">
+            <div class="programme-card">
+                <div class="programme-top-line"></div>
+                <div class="programme-date-badge">May 10, 2026</div>
+                <h3>Wedding Expo 2026</h3>
+                <p>Meet decorators, planners, caterers, and fashion vendors in one inspiring event experience.</p>
+                <a href="{% url 'heritage_event_centre_app:contact' %}" class="programme-link">Reserve a Seat</a>
+            </div>
+
+            <div class="programme-card">
+                <div class="programme-top-line"></div>
+                <div class="programme-date-badge">May 14, 2026</div>
+                <h3>Corporate Leadership Summit</h3>
+                <p>A professional gathering for executives, entrepreneurs, and team leaders to connect and grow.</p>
+                <a href="{% url 'heritage_event_centre_app:contact' %}" class="programme-link">Reserve a Seat</a>
+            </div>
+
+            <div class="programme-card">
+                <div class="programme-top-line"></div>
+                <div class="programme-date-badge">May 18, 2026</div>
+                <h3>Weekend Owanbe Night</h3>
+                <p>A vibrant evening of music, dance, celebration, and premium cultural entertainment.</p>
+                <a href="{% url 'heritage_event_centre_app:contact' %}" class="programme-link">Reserve a Seat</a>
+            </div>
+
+            <div class="programme-card">
+                <div class="programme-top-line"></div>
+                <div class="programme-date-badge">May 22, 2026</div>
+                <h3>Decor Masterclass</h3>
+                <p>Learn event styling, floral arrangement, stage design, and premium venue presentation.</p>
+                <a href="{% url 'heritage_event_centre_app:contact' %}" class="programme-link">Reserve a Seat</a>
+            </div>
+
+            <div class="programme-card">
+                <div class="programme-top-line"></div>
+                <div class="programme-date-badge">May 26, 2026</div>
+                <h3>Small Business Networking Meetup</h3>
+                <p>A networking event for founders, creatives, and professionals to exchange ideas and opportunities.</p>
+                <a href="{% url 'heritage_event_centre_app:contact' %}" class="programme-link">Reserve a Seat</a>
+            </div>
+
+            <div class="programme-card">
+                <div class="programme-top-line"></div>
+                <div class="programme-date-badge">May 30, 2026</div>
+                <h3>Couples Dinner & Live Music</h3>
+                <p>An intimate premium evening with fine dining, soft ambience, and live entertainment.</p>
+                <a href="{% url 'heritage_event_centre_app:contact' %}" class="programme-link">Reserve a Seat</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="calendar-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Venue Availability Calendar</h2>
+            <p>Check sample free days and booked dates for the month.</p>
+        </div>
+
+        <div class="calendar-legend">
+            <span><i class="legend-box available-box"></i> Available</span>
+            <span><i class="legend-box booked-box"></i> Booked</span>
+            <span><i class="legend-box limited-box"></i> Limited</span>
+        </div>
+
+        <div class="calendar-box">
+            <div class="calendar-header">
+                <h3>May 2026</h3>
+                <a href="{% url 'heritage_event_centre_app:contact' %}" class="btn-secondary small-btn">Reserve a Date</a>
+            </div>
+
+            <div class="calendar-grid day-names">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+
+            <div class="calendar-grid dates-grid">
+                <div class="date-cell empty"></div>
+                <div class="date-cell empty"></div>
+                <div class="date-cell empty"></div>
+                <div class="date-cell empty"></div>
+
+                <div class="date-cell available">1</div>
+                <div class="date-cell booked">2</div>
+                <div class="date-cell booked">3</div>
+                <div class="date-cell available">4</div>
+                <div class="date-cell limited">5</div>
+                <div class="date-cell available">6</div>
+                <div class="date-cell booked">7</div>
+                <div class="date-cell available">8</div>
+                <div class="date-cell available">9</div>
+                <div class="date-cell booked">10</div>
+                <div class="date-cell limited">11</div>
+                <div class="date-cell available">12</div>
+                <div class="date-cell booked">13</div>
+                <div class="date-cell available">14</div>
+                <div class="date-cell available">15</div>
+                <div class="date-cell booked">16</div>
+                <div class="date-cell available">17</div>
+                <div class="date-cell limited">18</div>
+                <div class="date-cell available">19</div>
+                <div class="date-cell booked">20</div>
+                <div class="date-cell available">21</div>
+                <div class="date-cell limited">22</div>
+                <div class="date-cell available">23</div>
+                <div class="date-cell booked">24</div>
+                <div class="date-cell available">25</div>
+                <div class="date-cell booked">26</div>
+                <div class="date-cell available">27</div>
+                <div class="date-cell available">28</div>
+                <div class="date-cell limited">29</div>
+                <div class="date-cell booked">30</div>
+                <div class="date-cell available">31</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="booking-cta-section">
+    <div class="container booking-cta-box">
+        <h2>Ready to Host Your Event?</h2>
+        <p>
+            Book our elegant venue for weddings, conferences, receptions,
+            seminars, and special celebrations.
+        </p>
+        <a href="{% url 'heritage_event_centre_app:contact' %}" class="btn-primary">Book Your Event</a>
+    </div>
+</section>
+
+{% endblock %}

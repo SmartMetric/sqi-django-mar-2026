@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Heritage Event Centre{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'heritage_event_centre_app/css/style.css' %}">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container nav-wrapper">
+
+            <a href="{% url 'heritage_event_centre_app:home' %}" class="brand-box">
+                <img src="{% static 'heritage_event_centre_app/images/HEC logo.png' %}" alt="HEC Logo" class="brand-logo">
+                <div class="brand-text">
+                    <h2>Heritage Event Centre</h2>
+                    <span>Premium Events & Celebrations</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="{% url 'heritage_event_centre_app:home' %}">Home</a>
+                <a href="{% url 'heritage_event_centre_app:about' %}">About</a>
+                <a href="{% url 'heritage_event_centre_app:events' %}">Events</a>
+                <a href="{% url 'heritage_event_centre_app:contact' %}">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <div id="announcement-bar" class="announcement-bar">
+        <div class="announcement-track">
+            <span>New workshops available this month!</span>
+            <span>Book your weddings, conferences, receptions, and premium celebrations with us.</span>
+            <span>New workshops available this month!</span>
+            <span>Book your weddings, conferences, receptions, and premium celebrations with us.</span>
+        </div>
+        <button id="close-bar" type="button">×</button>
+    </div>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Heritage Event Centre</p>
+        </div>
+    </footer>
+
+    <script src="{% static 'heritage_event_centre_app/js/script.js' %}"></script>
+</body>
+</html>

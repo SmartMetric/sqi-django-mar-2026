@@ -1,0 +1,46 @@
+{% extends "partials/base.html" %}
+{% load static %}
+
+{% block title %}Home | Heritage Event Centre{% endblock %}
+
+{% block content %}
+
+<section class="hero" style="background-image: linear-gradient(rgba(40, 14, 22, 0.28), rgba(40, 14, 22, 0.28)), url('{% static "heritage_event_centre_app/images/HEC building.png" %}');">
+    <div class="container hero-content">
+        <span class="hero-tag">Heritage Event Centre</span>
+        <h1>Welcome to Heritage Event Centre</h1>
+        <p>
+            Discover elegant celebrations, vibrant workshops, and unforgettable
+            cultural gatherings at Heritage Event Centre.
+        </p>
+        <a href="{% url 'heritage_event_centre_app:events' %}" class="btn-primary">View Events</a>
+    </div>
+</section>
+
+<section class="featured-section">
+    <div class="container">
+        <div class="section-heading">
+            <h2>Featured Event</h2>
+            <p>A beautiful celebration of culture, style, and community.</p>
+        </div>
+
+        <div class="featured-card">
+            <div class="featured-image">
+                <img src="{% static 'heritage_event_centre_app/images/hero.jpg' %}" alt="Featured Yoruba event">
+            </div>
+
+            <div class="featured-text">
+                <span class="badge">Featured Event</span>
+                <h3>Golden Owanbe Celebration</h3>
+                <p>
+                    Experience a premium Yoruba celebration filled with fashion,
+                    music, tradition, and elegant event styling.
+                </p>
+                <p class="event-date"><strong>Date:</strong> April 20, 2026</p>
+                <a href="{% url 'heritage_event_centre_app:events' %}" class="btn-secondary">Explore More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
